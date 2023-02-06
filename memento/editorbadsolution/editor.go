@@ -1,4 +1,4 @@
-package editor
+package editorbadsolution
 
 type Editor struct {
 	history      []string
