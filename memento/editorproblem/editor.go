@@ -1,4 +1,6 @@
-package editor
+package editorproblem
+
+// we want to implement undo mechanism for this editor
 
 type Editor struct {
 	content string

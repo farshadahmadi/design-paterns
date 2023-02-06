@@ -3,12 +3,17 @@ package main
 import (
 	"fmt"
 
-	"github.com/farshadahmadi/memento/editor"
+	"github.com/farshadahmadi/memento/editorbadsolution"
 )
 
 func main() {
-	fmt.Println("Test")
+	// client code using bad solution
 	e := editor.NewEditor("a")
 	e.SetContent("b")
-
+	e.SetContent("c")
+	fmt.Println(e.Content())
+	e.Undo()
+	fmt.Println(e.Content())
+	e.Undo()
+	fmt.Println(e.Content())
 }
