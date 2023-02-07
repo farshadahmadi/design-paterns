@@ -1,4 +1,4 @@
-package editorsolution
+package bettersolution
 
 type Editor struct {
 	history *editorStateHistory

@@ -1,4 +1,4 @@
-package editorproblem
+package problem
 
 // we want to implement undo mechanism for this editor
 

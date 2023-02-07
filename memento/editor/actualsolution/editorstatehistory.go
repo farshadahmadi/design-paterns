@@ -1,4 +1,4 @@
-package editorsolution
+package actualsolution
 
 type editorStateHistory struct {
 	history []*editorState
@@ -11,12 +11,12 @@ func NewEditorStateHistory() *editorStateHistory {
 	}
 }
 
-func (esh *editorStateHistory) pushState(state *editorState) {
+func (esh *editorStateHistory) PushState(state *editorState) {
 	esh.index++
 	esh.history = append(esh.history, state)
 }
 
-func (esh *editorStateHistory) popState() *editorState {
+func (esh *editorStateHistory) PopState() *editorState {
 	esh.index--
 	return esh.history[esh.index]
 }
