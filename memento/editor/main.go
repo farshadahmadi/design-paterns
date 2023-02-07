@@ -18,6 +18,7 @@ func main() {
 	fmt.Println(e1.Content())
 	e1.Undo()
 	fmt.Println(e1.Content())
+	fmt.Println("---------")
 
 	// client code using better solution
 	// This solution delegate all history management stuff to Editor service. This violates Single Responsibility
@@ -26,12 +27,13 @@ func main() {
 	e2 := bettersolution.NewEditor()
 	e2.SetContent("a")
 	e2.SetContent("b")
-	fmt.Println(e2.Content())
-	e2.Undo()
-	fmt.Println(e2.Content())
 	e2.SetContent("c")
+	fmt.Println(e2.Content())
 	e2.Undo()
 	fmt.Println(e2.Content())
+	e2.Undo()
+	fmt.Println(e2.Content())
+	fmt.Println("---------")
 
 	// client code using actual solution
 	// This solution allows client code to handle history management. Thus, Editor service does not need to handle history management
@@ -55,4 +57,8 @@ func main() {
 	e3.SetState(es)
 	fmt.Println(e3.Content())
 
+	es = esh.PopState()
+	e3.SetState(es)
+	fmt.Println(e3.Content())
+	fmt.Println("---------")
 }
