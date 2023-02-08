@@ -1,4 +1,4 @@
-package bettersolution
+package c_bettersolution
 
 type editorStateHistory struct {
 	history []*editorState

@@ -1,4 +1,4 @@
-package actualsolution
+package d_actualsolution
 
 type editorState struct {
 	content string
