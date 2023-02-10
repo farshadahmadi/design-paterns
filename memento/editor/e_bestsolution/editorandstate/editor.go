@@ -4,16 +4,16 @@ type Editor struct {
 	content string
 }
 
+func NewEditor() *Editor {
+	return &Editor{}
+}
+
 func (e *Editor) Content() string {
 	return e.content
 }
 
 func (e *Editor) SetContent(content string) {
 	e.content = content
-}
-
-func NewEditor() *Editor {
-	return &Editor{}
 }
 
 func (e *Editor) GetState() EditorState {
