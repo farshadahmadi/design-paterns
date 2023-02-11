@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/farshadahmadi/memento/editor/b_badsolution"
-	"github.com/farshadahmadi/memento/editor/c_bettersolution"
-	"github.com/farshadahmadi/memento/editor/d_actualsolution"
-	"github.com/farshadahmadi/memento/editor/e_bestsolution/editorandstate"
-	"github.com/farshadahmadi/memento/editor/e_bestsolution/history"
+	"github.com/farshadahmadi/a_memento/editor/b_badsolution"
+	"github.com/farshadahmadi/a_memento/editor/c_bettersolution"
+	"github.com/farshadahmadi/a_memento/editor/d_actualsolution"
+	"github.com/farshadahmadi/a_memento/editor/e_bestsolution/editorandstate"
+	"github.com/farshadahmadi/a_memento/editor/e_bestsolution/history"
 )
 
 func main() {

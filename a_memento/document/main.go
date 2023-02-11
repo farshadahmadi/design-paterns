@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/farshadahmadi/memento/document/document"
-	"github.com/farshadahmadi/memento/document/history"
+	"github.com/farshadahmadi/a_memento/document/document"
+	"github.com/farshadahmadi/a_memento/document/history"
 )
 
 func main() {

@@ -1,6 +1,6 @@
 package history
 
-import "github.com/farshadahmadi/memento/document/document"
+import "github.com/farshadahmadi/a_memento/document/document"
 
 type DocumentHistory struct {
 	history []*document.State

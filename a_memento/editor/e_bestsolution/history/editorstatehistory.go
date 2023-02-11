@@ -1,6 +1,6 @@
 package history
 
-import "github.com/farshadahmadi/memento/editor/e_bestsolution/editorandstate"
+import "github.com/farshadahmadi/a_memento/editor/e_bestsolution/editorandstate"
 
 type editorStateHistory struct {
 	history []editorandstate.EditorState
