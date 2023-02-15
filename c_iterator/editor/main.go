@@ -5,6 +5,9 @@ import (
 
 	"github.com/farshadahmadi/c_iterator/editor/b_badsolution/editorandstate"
 	"github.com/farshadahmadi/c_iterator/editor/b_badsolution/history"
+
+	bettereditorandstate "github.com/farshadahmadi/c_iterator/editor/c_bettersolution/editorandstate"
+	betterhistory "github.com/farshadahmadi/c_iterator/editor/c_bettersolution/history"
 )
 
 func main() {
@@ -25,6 +28,31 @@ func main() {
 	esh.PushState(e.GetState())
 
 	for _, state := range esh.History() {
+		fmt.Println(state)
+	}
+
+	fmt.Println("--------------")
+
+	// Proper solution is to define an iterator interface. There will a concrete implementation of the iterator interface
+	// specific for history service, lets call it EditorHistoryIterator. The iterator concrete implement is a separate service
+	// to follow Single Responsibility Principle, it is responsible only for iterating the mementos. It needs a reference
+	// to the history class to access mementos. History class provides client with a exported function to create a fresh iterator.
+	// The return iterator is of type iterator interface, this is programming to an interface!
+
+	esh1 := betterhistory.NewEditorStateHistory()
+	e1 := bettereditorandstate.NewEditor()
+	e1.SetContent("a")
+	esh1.PushState(e1.GetState())
+
+	e1.SetContent("b")
+	esh1.PushState(e1.GetState())
+
+	e1.SetContent("c")
+	esh1.PushState(e1.GetState())
+
+	iterator := esh1.CreateIterator()
+
+	for state, ok := iterator.Next(); ok; state, ok = iterator.Next() {
 		fmt.Println(state)
 	}
 }
