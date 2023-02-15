@@ -3,11 +3,16 @@ package main
 import (
 	"fmt"
 
-	"github.com/farshadahmadi/c_iterator/editor/a_problem/editorandstate"
-	"github.com/farshadahmadi/c_iterator/editor/a_problem/history"
+	"github.com/farshadahmadi/c_iterator/editor/b_badsolution/editorandstate"
+	"github.com/farshadahmadi/c_iterator/editor/b_badsolution/history"
 )
 
 func main() {
+	// Trivial and bad solution is to introduce a getter for history slice. Now client can iterate over the mementos.
+	// However, there are several issues with it. First, history object is exposed to client, violating encapsulation.
+	// Second, if later internal data structure of history service (for keeping mementos) changes, then client code
+	// breaks.
+
 	esh := history.NewEditorStateHistory()
 	e := editorandstate.NewEditor()
 	e.SetContent("a")
@@ -19,12 +24,7 @@ func main() {
 	e.SetContent("c")
 	esh.PushState(e.GetState())
 
-	for state, ok := esh.Next(); ok; state, ok = esh.Next() {
-		fmt.Println(state)
-	}
-
-	esh.Reset()
-	for state, ok := esh.Next(); ok; state, ok = esh.Next() {
+	for _, state := range esh.History() {
 		fmt.Println(state)
 	}
 }
