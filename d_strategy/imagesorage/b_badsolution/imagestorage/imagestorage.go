@@ -24,7 +24,7 @@ func NewImageStorage(compress compress.Compress, filter filter.Filter) *ImageSto
 
 func (is *ImageStorage) StoreImage(fileName string, data []byte) error {
 	if is.compress == compress.PNG {
-		fmt.Println("Image is compressed using,", compress.PNG, fileName)
+		fmt.Println("Image is compressed using,", compress.PNG)
 	} else if is.compress == compress.JPEG {
 		fmt.Println("Image is compressed using", compress.JPEG)
 	}
