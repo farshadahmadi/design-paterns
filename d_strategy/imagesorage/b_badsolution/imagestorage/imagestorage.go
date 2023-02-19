@@ -3,8 +3,8 @@ package imagestorage
 import (
 	"fmt"
 
-	"github.com/farshadahmadi/d_strategy/imagestorage/a_problem/compress"
-	"github.com/farshadahmadi/d_strategy/imagestorage/a_problem/filter"
+	"github.com/farshadahmadi/d_strategy/imagestorage/b_badsolution/compress"
+	"github.com/farshadahmadi/d_strategy/imagestorage/b_badsolution/filter"
 )
 
 // The trivial bad solution is to use enums. So client code will define the compressing and filtering algorithms (

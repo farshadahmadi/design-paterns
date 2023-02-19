@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/farshadahmadi/d_strategy/imagestorage/a_problem/compress"
-	"github.com/farshadahmadi/d_strategy/imagestorage/a_problem/filter"
+	"github.com/farshadahmadi/d_strategy/imagestorage/b_badsolution/compress"
+	"github.com/farshadahmadi/d_strategy/imagestorage/b_badsolution/filter"
 	"github.com/farshadahmadi/d_strategy/imagestorage/b_badsolution/imagestorage"
 )
 
