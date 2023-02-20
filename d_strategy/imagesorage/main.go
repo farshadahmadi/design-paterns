@@ -8,8 +8,11 @@ import (
 	"github.com/farshadahmadi/d_strategy/imagestorage/b_badsolution/imagestorage"
 	bettercompress "github.com/farshadahmadi/d_strategy/imagestorage/c_solution/compress"
 	betterfilter "github.com/farshadahmadi/d_strategy/imagestorage/c_solution/filter"
+	betterfunctionalcompress "github.com/farshadahmadi/d_strategy/imagestorage/d_solution_with_funstional_interface/compress"
+	betterfunctionalfilter "github.com/farshadahmadi/d_strategy/imagestorage/d_solution_with_funstional_interface/filter"
 
 	betterimagestorage "github.com/farshadahmadi/d_strategy/imagestorage/c_solution/imagestorage"
+	betterimagestoragewithfunctionaltype "github.com/farshadahmadi/d_strategy/imagestorage/d_solution_with_funstional_interface/imagestorage"
 )
 
 func main() {
@@ -43,4 +46,20 @@ func main() {
 
 		return
 	}
+
+	fmt.Println("--------")
+
+	// This is the same solution as above, but uses functions (instead of structs) that implement interfaces
+	// visit https://karthikkaranth.me/blog/functions-implementing-interfaces-in-go/
+	is2 := betterimagestoragewithfunctionaltype.NewImageStorage(
+		betterfunctionalcompress.CompressorFunc(betterfunctionalcompress.JpegCompressor),
+		betterfunctionalfilter.FilterFunc(betterfunctionalfilter.BlackAndWhiteFilter),
+	)
+	err = is2.StoreImage("image1", []byte{})
+	if err != nil {
+		fmt.Println("cannot store image", err)
+
+		return
+	}
+
 }
