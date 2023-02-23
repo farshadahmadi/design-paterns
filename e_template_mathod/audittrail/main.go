@@ -1,11 +1,24 @@
 package main
 
+import (
+	"github.com/farshadahmadi/e_template_method/audittrail/b_bad_solution/audittrail"
+	"github.com/farshadahmadi/e_template_method/audittrail/b_bad_solution/task"
+)
+
 // Some tasks need to be done. Our problem is that we want to do a repetitive sub task as part of all these tasks.
 // For example, our tasks are transferring money and generating report. But we want to audit trail them. Meaning whenever
 // a money transfer is done, it is recorded by an audit tail. Th same goes to generating report. So we have info who did what.
 // Think about a solution to do that!
 
 func main() {
-	// do transfer money
-	// do generate report
+	// Client cod for The trivial bas solution.
+	// Although single responsibility principle is followed here by putting codes related to transferring money and
+	// generating reports into their own classes class, but there are two issues:
+	// - DRY is not followed. You can see the same code in GenerateReport class for audit trail related code
+	// - if later somebody add a task, no body is forcing them to record and audit trail!
+	at := audittrail.NewAuditTrail()
+	tm := task.NewTransferMoney(at)
+	tm.Execute()
+	gr := task.NewGenerateReport(at)
+	gr.Execute()
 }
