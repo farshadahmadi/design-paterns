@@ -1,8 +1,12 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/farshadahmadi/e_template_method/audittrail/b_bad_solution/audittrail"
 	"github.com/farshadahmadi/e_template_method/audittrail/b_bad_solution/task"
+	audittrail2 "github.com/farshadahmadi/e_template_method/audittrail/c_solution/audittrail"
+	task2 "github.com/farshadahmadi/e_template_method/audittrail/c_solution/task"
 )
 
 // Some tasks need to be done. Our problem is that we want to do a repetitive sub task as part of all these tasks.
@@ -21,4 +25,13 @@ func main() {
 	tm.Execute()
 	gr := task.NewGenerateReport(at)
 	gr.Execute()
+
+	fmt.Println("=================")
+	// Go does not have inheritance. So conventional template method design pattern which is based on inheritance
+	// is not possible. But as we know, most inheritance-based approaches can be implemented using composition/delegation;
+	// This will return us back to strategy pattern.
+	at1 := audittrail2.NewAuditTrail()
+	te := task2.NewExecuter(at1)
+	te.Execute(task2.NewMoneyTransferTask())
+	te.Execute(task2.NewGenerateReportTask())
 }
